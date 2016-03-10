@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Coder Phial]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 10 Mar 2016 02:59:18 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Welcome to Ghost]]></title><description><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list</p>]]></description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">03babea9-a52e-44ac-9d2d-ed8ad9d8fe34</guid><category><![CDATA[Getting Started]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 02:15:05 GMT</pubDate><content:encoded><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Code Phial]]></title><description><![CDATA[A compilation of useful coding ventures as well as personal thoughts and experiences along the way. 
+
+Mostly for self-reflection, but if it benefits others then all the better!]]></description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Thu, 10 Mar 2016 04:37:19 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Getting Ghost Running on Github (with Buster)]]></title><description><![CDATA[<p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
+
+<p>There were a few blogs out there that suggested to use the <strong>Quick Install</strong> method. However, at some <em>quick</em> first attempts I encountered a</p>]]></description><link>http://localhost:2368/getting-ghost-running-on-github-with-buster/</link><guid isPermaLink="false">1193532c-5467-4d2f-b4cc-b9934ab08867</guid><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 04:34:49 GMT</pubDate><content:encoded><![CDATA[<p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
+
+<p>There were a few blogs out there that suggested to use the <strong>Quick Install</strong> method. However, at some <em>quick</em> first attempts I encountered a number of issues (mostly revolving around <a href="https://github.com/axitkhurana/buster">Buster</a> and its generate command failing after trying to fix links: <br>
+<code>fixing links in  /Users/&lt;user&gt;/Development/Node/ghost-0.7.8/static/index.html</code>)</p>
+
+<p>So I decided to do what any sane developer would do and to clone the entire repo (which will also come in handy when I have time to contribute to the project anyway).</p>
+
+<hr>
+
+<h2 id="gettingstarted">Getting Started</h2>
+
+<p>Make sure you have <a href="https://nodejs.org/en/">Node.js</a> installed prior to doing any of the following. <br>
+I cloned the repo in a folder of my choosing (renaming it 'Ghost') and then entered it:</p>
+
+<pre><code>git clone https://github.com/TryGhost/Ghost.git "Ghost"
+cd ghost
+</code></pre>
+
+<p>Next, install the Grunt CLI globally if you haven't already:</p>
+
+<pre><code>npm install -g grunt-cli
+</code></pre>
+
+<p>Time to install Ghost itself:</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>And wait... <br>
+Since we are going to be deploying for production we want to use the stable branch:</p>
+
+<pre><code>git checkout stable
+</code></pre>
+
+<p>Next we build and minify for production:</p>
+
+<pre><code>grunt init
+grunt prod
+</code></pre>
+
+<p>Some more waiting while it spins... go read a book or something productive. <br>
+When it is done we can finally run a local server to see if everything is running smoothly!</p>
+
+<pre><code>npm start
+</code></pre>
+
+<p>Navigating to <a href="http://localhost:2368/">http://localhost:2368/</a> in your browser, you should see  </p>
+
+<hr>
+
+<h2 id="settingupyourblog">Setting up your Blog</h2>
+
+<p>When you navigate to <a href="http://localhost:2368/ghost">http://localhost:2368/ghost</a> you will be taken through a setup process for your blog. <br>
+Make an account and when the process is finished you will see the admin screen:  </p>
+
+<p>As you can see it is simple and intuitive to understand, unlike some other blogging platforms that tend to overcomplicate matters.</p>
+
+<p>Feel free to customize it to your liking. Add your <strong>logo</strong> and a <strong>background</strong>. You can change <strong>themes</strong> later (instructions below) or even create your very own.</p>
+
+<hr>
+
+<h2 id="firstdeploywithbuster">First Deploy with Buster</h2>
+
+<p>Firstly, you want to create a <a href="https://github.com/new">new Github repo</a> named &lt;your-user-name&gt;.github.io</p>
+
+<p>Secondly you want to make sure pip is installed on your system:</p>
+
+<pre><code>easy_install pip 
+</code></pre>
+
+<p>Use pip to install <a href="https://github.com/axitkhurana/buster">Buster</a>:</p>
+
+<pre><code>pip install buster
+</code></pre>
+
+<p><code>cd</code> into your Ghost repo. We need to link Buster to your github repo and create that static folder:</p>
+
+<pre><code>buster setup
+https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git
+</code></pre>
+
+<p>Since Buster generates static files from a local server, we need to make sure the server is running:</p>
+
+<pre><code>npm start
+</code></pre>
+
+<p>and in a separate terminal window (in the same Ghost directory) run:</p>
+
+<pre><code>buster generate --domain=http://localhost:2368/
+</code></pre>
+
+<p>This will generate static files from a local running server and places them inside a <strong>static</strong> folder from where the command was called.</p>
+
+<p>One last step! You need to push it up to github in one of two ways:</p>
+
+<pre><code>buster deploy 
+</code></pre>
+
+<p><strong>OR</strong> (like most sane people would do)</p>
+
+<pre><code>cd static
+git add .
+git commit -m "first commit"
+git push origin master
+</code></pre>
+
+<p>Check &lt;your-user-name&gt;.github.io to make sure it deployed correctly!</p>
+
+<hr>
+
+<h2 id="blogworkflow">Blog Workflow</h2>
+
+<ol>
+<li>If it is not already obvious, you need to run your local server with <code>npm start</code> and navigate to <a href="http://localhost:2368/ghost">http://localhost:2368/ghost</a>  </li>
+<li>Click new post and add your . When you're finished markdown and click "Publish now" on the top right corner  </li>
+<li>Use the <code>buster generate --domain=http://localhost:2368/</code> command above to rebuild your updated static folder  </li>
+<li>Deploy to github: <br>
+<ul><li><code>buster deploy</code> </li>
+<li>or <code>cd static/</code> and push it up to your remote on github normally.
+
+
+<blockquote>
+  Remember you need to have your local server running in the background before you use <code>buster generate</code></blockquote></li></ul></li>
+  <li>Pray someone actually reads it. Or you can spam it all over social networks and piss people off with your wise-cracks. Your choice.</li>
+  </ol>
+  <hr>
+
+
+<h2 id="customize">Customize</h2>
+
+<ol>
+<li>Find a theme <a href="http://marketplace.ghost.org/themes/free/">http://marketplace.ghost.org/themes/free/</a> and its Github repo  </li>
+<li><code>cd &lt;path&gt;/Ghost/content/themes</code>  </li>
+<li><code>git clone &lt;repo-of-theme&gt; "&lt;name-of-theme&gt;"</code> <br>
+<ul><li>Example: <code>git clone https://github.com/oswaldoacauan/ghostium/ "ghostium"</code></li></ul></li>
+<li><code>cd ../..</code> (Back to your Ghost root directory)  </li>
+<li><code>npm start</code> (Run your server)  </li>
+<li>Go to <a href="http://localhost:2368/ghost/settings/general/">http://localhost:2368/ghost/settings/general/</a> and select the newly installed theme from the drop down. Restart the server and you will see it.  </li>
+<li>Dance!</li>
+</ol>
+
+<blockquote>
+  <p>Some themes have more configuration options than others. Such as Google Analytics, Disqus, etc.</p>
+</blockquote>
+
+<p>Of course even if it doesn't you can add it yourself cause you're a smart cookie. Enjoy!</p>]]></content:encoded></item><item><title><![CDATA[Welcome to Ghost]]></title><description><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list</p>]]></description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">03babea9-a52e-44ac-9d2d-ed8ad9d8fe34</guid><category><![CDATA[Getting Started]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 02:15:05 GMT</pubDate><content:encoded><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!</p>
 
 <h2 id="gettingstarted">Getting Started</h2>
 
