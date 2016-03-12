@@ -20,17 +20,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="Ghost" />
 
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" href="http://localhost:2368/ghost/img/touch-icon-iphone.png?v=04ffb8f03a" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://localhost:2368/ghost/img/touch-icon-ipad.png?v=04ffb8f03a" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://localhost:2368/ghost/img/small.png?v=04ffb8f03a" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://localhost:2368/ghost/img/medium.png?v=04ffb8f03a" />
+    <link rel="shortcut icon" href="http://localhost:2368/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="http://localhost:2368/ghost/img/touch-icon-iphone.png?v=24226c447b" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://localhost:2368/ghost/img/touch-icon-ipad.png?v=24226c447b" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://localhost:2368/ghost/img/small.png?v=24226c447b" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://localhost:2368/ghost/img/medium.png?v=24226c447b" />
 
     <meta name="application-name" content="Ghost" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-square70x70logo" content="/ghost/img/small.png?v=04ffb8f03a" />
-    <meta name="msapplication-square150x150logo" content="/ghost/img/medium.png?v=04ffb8f03a" />
-    <meta name="msapplication-square310x310logo" content="/ghost/img/large.png?v=04ffb8f03a" />
+    <meta name="msapplication-square70x70logo" content="/ghost/img/small.png?v=24226c447b" />
+    <meta name="msapplication-square150x150logo" content="/ghost/img/medium.png?v=24226c447b" />
+    <meta name="msapplication-square310x310logo" content="/ghost/img/large.png?v=24226c447b" />
 
         <meta name="env-fileStorage" content="true" data-type="bool" />
         <meta name="env-publicAPI" content="false" data-type="bool" />
@@ -43,8 +43,8 @@
 
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" />
 
-    <link rel="stylesheet" href="http://localhost:2368/ghost/vendor.css?v=04ffb8f03a" />
-    <link rel="stylesheet" href="http://localhost:2368/ghost/ghost.css?v=04ffb8f03a" />
+    <link rel="stylesheet" href="http://localhost:2368/ghost/vendor.css?v=24226c447b" />
+    <link rel="stylesheet" href="http://localhost:2368/ghost/ghost.css?v=24226c447b" />
 
     
 </head>
@@ -53,7 +53,7 @@
 
 
 
-<script src="http://localhost:2368/ghost/vendor.js?v=04ffb8f03a"></script>
-<script src="http://localhost:2368/ghost/ghost.js?v=04ffb8f03a"></script>
+<script src="http://localhost:2368/ghost/vendor.js?v=24226c447b"></script>
+<script src="http://localhost:2368/ghost/ghost.js?v=24226c447b"></script>
 </body>
 </html>
