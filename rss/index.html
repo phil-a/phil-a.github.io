@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Code Phial]]></title><description><![CDATA[A compilation of useful coding ventures as well as personal thoughts and experiences along the way. 
 
-Mostly for self-reflection, but if it benefits others then all the better!]]></description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 12 Mar 2016 08:05:50 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Getting Ghost Running on Github (with Buster)]]></title><description><![CDATA[A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform. ]]></description><link>http://localhost:2368/getting-ghost-running-on-github-with-buster/</link><guid isPermaLink="false">1193532c-5467-4d2f-b4cc-b9934ab08867</guid><category><![CDATA[buster]]></category><category><![CDATA[github]]></category><category><![CDATA[ghost-blog]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 04:34:49 GMT</pubDate><media:content url="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" medium="image"/><content:encoded><![CDATA[<img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" alt="Getting Ghost Running on Github (with Buster)"><p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
+Mostly for self-reflection, but if it benefits others then all the better!]]></description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 20 Mar 2016 01:43:56 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Getting Started with React Native]]></title><description><![CDATA[A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android.]]></description><link>http://localhost:2368/getting-started-with-react-native/</link><guid isPermaLink="false">cef3181a-4ee4-435c-9168-27a9fc86e48f</guid><category><![CDATA[react-native]]></category><category><![CDATA[mobile development]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Sun, 20 Mar 2016 01:34:00 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/03/react-native.png" medium="image"/><content:encoded><![CDATA[<h2 id="why">Why?</h2>
+
+<img src="http://localhost:2368/content/images/2016/03/react-native.png" alt="Getting Started with React Native"><p>I decided to dive head-first into learning React Native today. Why, you ask, do I not just use Xcode and learn Swift (which I have heard was really great, actually) and then also use Android Studio and code in Java.</p>
+
+<p>That basically answers the question. <strong>Cause I'm lazy.</strong> I want to develop native mobile apps, but yet I would basically have to rewrite the front-end twice in two different languages. That's quite a pain in the ass. <br>
+I know it <em>could</em> possibly make me a better programmer down the road. And my expertise <em>could</em> be more in demand in the future (maybe, but also maybe not). </p>
+
+<p>However, I want to develop and release to multiple platforms with as little 'mode-switching' in my mind as possible right now. For this consistency, I think <a href="https://facebook.github.io/react-native/">React Native</a> will take off. Plus, there is the bonus feature of not having to wait 2 hours for compilation every time you make a change, which is <em>quite nice</em>. But, even if React Native hits an iceberg and sinks, React will still be around for web developers. This is also <em>quite nice</em> to fall-back on.</p>
+
+<hr>
+
+<h2 id="setuposx">Setup (OSX)</h2>
+
+<p>You will need to install <a href="https://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">Xcode</a> and the <a href="http://developer.android.com/sdk/index.html">Android Studio SDK</a> installed.</p>
+
+<p>You should also have <a href="https://nodejs.org/en/">Node.js</a> installed on your system. I suggest using <a href="https://www.npmjs.com/package/nvm">nvm</a> to switch between versions as React Native may require different versions from your other applications. <br>
+There are multiple ways to install nvm, and how you do it I'll leave to personal preference.</p>
+
+<p>Next you need to install watchman which is a file watching service built by Facebook:</p>
+
+<pre><code>brew install watchman
+</code></pre>
+
+<p>Next, you need to install the React Native client:</p>
+
+<pre><code>npm install -g react-native-cli
+</code></pre>
+
+<hr>
+
+<h2 id="generatingaproject">Generating a Project</h2>
+
+<p>Thereis just one simple command to generate a new React Native project:</p>
+
+<pre><code>react-native init &lt;name-of-project&gt;
+</code></pre>
+
+<hr>
+
+<h2 id="testing">Testing</h2>
+
+<p>By default, React Native builds a running application. <br>
+Launch your server by running:</p>
+
+<pre><code>npm start
+</code></pre>
+
+<p>If you have your Xcode and Android Studio setup correctly you can launch the emulators or run it directly on the device.  </p>
+
+<h3 id="ios">iOS</h3>
+
+<pre><code>react-native run-ios
+</code></pre>
+
+<p>This will launch an iOS emulator on your machine, which will you will see the following page on it: <br>
+<img src="https://s3.amazonaws.com/code-phial/images/getting-started-with-react-native/react-native-first-run.png" alt="Getting Started with React Native"></p>
+
+<h3 id="android">Android</h3>
+
+<p>You can run a similar command for Android:</p>
+
+<pre><code>react-native run-android
+</code></pre>
+
+<p>However, you may get a red error screen if it is not set up on the correct IP address. To fix this you need to get to the <strong>dev menu by pressing Cmd+D or shaking the physical device</strong></p>
+
+<p>Then click <strong>Dev Settings</strong> and under "Debugging", select <strong>"Debug server host &amp; port for device"</strong> <br>
+Enter: <code>&lt;Your_ip_address&gt;:8081</code></p>
+
+<p>To find out the IP address of your computer (from System Preferences > Network <strong>OR</strong> you can run <code>$ ifconfig | grep 'inet'</code>) and make sure your device is on the same network.</p>
+
+<p>Reload it and you should see the same welcome screen above!</p>
+
+<hr>
+
+<h2 id="references">References</h2>
+
+<p><a href="https://facebook.github.io/react-native/docs/getting-started.html">https://facebook.github.io/react-native/docs/getting-started.html</a></p>]]></content:encoded></item><item><title><![CDATA[Getting Ghost Running on Github (with Buster)]]></title><description><![CDATA[A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform. ]]></description><link>http://localhost:2368/getting-ghost-running-on-github-with-buster/</link><guid isPermaLink="false">1193532c-5467-4d2f-b4cc-b9934ab08867</guid><category><![CDATA[buster]]></category><category><![CDATA[github]]></category><category><![CDATA[ghost-blog]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 04:34:49 GMT</pubDate><media:content url="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" medium="image"/><content:encoded><![CDATA[<img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" alt="Getting Ghost Running on Github (with Buster)"><p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
 
 <p>There were a few blogs out there that suggested to use the <strong>Quick Install</strong> method. However, at some <em>quick</em> first attempts I encountered a number of issues (mostly revolving around <a href="https://github.com/axitkhurana/buster">Buster</a> and its generate command failing after trying to fix links: <br>
 <code>fixing links in  /Users/&lt;user&gt;/Development/Node/ghost-0.7.8/static/index.html</code>)</p>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Getting Started with React Native</title>
+	<meta name="description" content="A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android." />
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/dependencies.css?v=7efed0758a" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=7efed0758a" />
+
+	<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Code Phial" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Getting Started with React Native" />
+    <meta property="og:description" content="A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android." />
+    <meta property="og:url" content="http://localhost:2368/getting-started-with-react-native/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2016/03/react-native.png" />
+    <meta property="article:published_time" content="2016-03-20T01:34:00.000Z" />
+    <meta property="article:modified_time" content="2016-03-20T01:42:57.589Z" />
+    <meta property="article:tag" content="react-native" />
+    <meta property="article:tag" content="mobile development" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Getting Started with React Native" />
+    <meta name="twitter:description" content="A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android." />
+    <meta name="twitter:url" content="http://localhost:2368/getting-started-with-react-native/" />
+    <meta name="twitter:image:src" content="http://localhost:2368/content/images/2016/03/react-native.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Code Phial",
+    "author": {
+        "@type": "Person",
+        "name": "Philip Alekseev",
+        "image": "//www.gravatar.com/avatar/0b659d32538d17494c106bc33591e4e1?s=250&d=mm&r=x",
+        "url": "http://localhost:2368/author/philip/",
+        "sameAs": "http://www.alekseev.ca"
+    },
+    "headline": "Getting Started with React Native",
+    "url": "http://localhost:2368/getting-started-with-react-native/",
+    "datePublished": "2016-03-20T01:34:00.000Z",
+    "dateModified": "2016-03-20T01:42:57.589Z",
+    "image": "http://localhost:2368/content/images/2016/03/react-native.png",
+    "keywords": "react-native, mobile development",
+    "description": "A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Code Phial" href="../rss/index.html" />
+    <script>var disqus="codephial";</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73538909-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body class="post-template tag-react-native tag-mobile-development">
+	<section id="wrapper">
+		<div id="ajax-container">
+			<nav id="nav" class="nav">
+				<div class="nav-logo">
+					<a href="../index.html">
+						<img src="../content/images/2016/03/phial_nice-2.png" alt="Logo" />
+						
+					</a>
+				</div>
+				<div class="nav-menu">
+					<a class="rss" href="../rss/index.html"><i class="icon-rss"></i></a>
+					<a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
+				</div>
+			</nav>			
+			
+
+<main class="content" role="main">
+	<article class="post tag-react-native tag-mobile-development featured">
+		<div class="inner">
+
+			<div id="push">
+
+			<header class="post-header">
+				<span class="post-meta">
+					<span class="post-author"><a href="../author/philip/index.html">Philip Alekseev</a></span> | <span class="post-date">19 Mar 2016 <span class="post-reading-time">| <span class="estimated-reading-time"></span> (<span class="word-count"></span> words)</span></span>
+				</span>
+				<div class="clear"></div>
+				<h1 class="post-title">Getting Started with React Native</h1>
+			</header>
+		
+			<section class="post-content">
+				<h2 id="why">Why?</h2>
+
+<p>I decided to dive head-first into learning React Native today. Why, you ask, do I not just use Xcode and learn Swift (which I have heard was really great, actually) and then also use Android Studio and code in Java.</p>
+
+<p>That basically answers the question. <strong>Cause I'm lazy.</strong> I want to develop native mobile apps, but yet I would basically have to rewrite the front-end twice in two different languages. That's quite a pain in the ass. <br />
+I know it <em>could</em> possibly make me a better programmer down the road. And my expertise <em>could</em> be more in demand in the future (maybe, but also maybe not). </p>
+
+<p>However, I want to develop and release to multiple platforms with as little 'mode-switching' in my mind as possible right now. For this consistency, I think <a href="https://facebook.github.io/react-native/">React Native</a> will take off. Plus, there is the bonus feature of not having to wait 2 hours for compilation every time you make a change, which is <em>quite nice</em>. But, even if React Native hits an iceberg and sinks, React will still be around for web developers. This is also <em>quite nice</em> to fall-back on.</p>
+
+<hr />
+
+<h2 id="setuposx">Setup (OSX)</h2>
+
+<p>You will need to install <a href="https://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">Xcode</a> and the <a href="http://developer.android.com/sdk/index.html">Android Studio SDK</a> installed.</p>
+
+<p>You should also have <a href="https://nodejs.org/en/">Node.js</a> installed on your system. I suggest using <a href="https://www.npmjs.com/package/nvm">nvm</a> to switch between versions as React Native may require different versions from your other applications. <br />
+There are multiple ways to install nvm, and how you do it I'll leave to personal preference.</p>
+
+<p>Next you need to install watchman which is a file watching service built by Facebook:</p>
+
+<pre><code>brew install watchman
+</code></pre>
+
+<p>Next, you need to install the React Native client:</p>
+
+<pre><code>npm install -g react-native-cli
+</code></pre>
+
+<hr />
+
+<h2 id="generatingaproject">Generating a Project</h2>
+
+<p>Thereis just one simple command to generate a new React Native project:</p>
+
+<pre><code>react-native init &lt;name-of-project&gt;
+</code></pre>
+
+<hr />
+
+<h2 id="testing">Testing</h2>
+
+<p>By default, React Native builds a running application. <br />
+Launch your server by running:</p>
+
+<pre><code>npm start
+</code></pre>
+
+<p>If you have your Xcode and Android Studio setup correctly you can launch the emulators or run it directly on the device.  </p>
+
+<h3 id="ios">iOS</h3>
+
+<pre><code>react-native run-ios
+</code></pre>
+
+<p>This will launch an iOS emulator on your machine, which will you will see the following page on it: <br />
+<img src="https://s3.amazonaws.com/code-phial/images/getting-started-with-react-native/react-native-first-run.png" alt="React Native first run" /></p>
+
+<h3 id="android">Android</h3>
+
+<p>You can run a similar command for Android:</p>
+
+<pre><code>react-native run-android
+</code></pre>
+
+<p>However, you may get a red error screen if it is not set up on the correct IP address. To fix this you need to get to the <strong>dev menu by pressing Cmd+D or shaking the physical device</strong></p>
+
+<p>Then click <strong>Dev Settings</strong> and under "Debugging", select <strong>"Debug server host &amp; port for device"</strong> <br />
+Enter: <code>&lt;Your_ip_address&gt;:8081</code></p>
+
+<p>To find out the IP address of your computer (from System Preferences > Network <strong>OR</strong> you can run <code>$ ifconfig | grep 'inet'</code>) and make sure your device is on the same network.</p>
+
+<p>Reload it and you should see the same welcome screen above!</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a href="https://facebook.github.io/react-native/docs/getting-started.html">https://facebook.github.io/react-native/docs/getting-started.html</a></p>
+			</section>
+			
+			<footer class="post-footer">
+				<div class="post-tags">
+					<a href="../tag/react-native/index.html">react-native</a> <a href="../tag/mobile-development/index.html">mobile development</a>
+				</div>
+				<div class="post-share">
+					<a class="icon-twitter" href="https://twitter.com/share?text=Getting Started with React Native&url=http://localhost:2368/getting-started-with-react-native/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<span>Twitter</span>
+					</a>
+					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/getting-started-with-react-native/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<span>Facebook</span>
+					</a>
+					<a class="icon-gplus" href="https://plus.google.com/share?url=http://localhost:2368/getting-started-with-react-native/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<span>Google+</span>
+					</a>
+				</div>
+			</footer>
+			
+			<aside class="post-comments">
+				<div id="disqus_thread"></div>
+			</aside>
+			
+			</div>
+			
+			<nav class="post-nav">
+					<a class="post-nav-item post-nav-prev" href="../getting-ghost-running-on-github-with-buster/index.html">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Getting Ghost Running on Github (with Buster)</h4>
+								<p class="post-nav-excerpt">I thought it would be fitting to start off my first blog&hellip;</p>
+							</span>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+			<div id="body-class" style="display: none;" class="post-template tag-react-native tag-mobile-development"></div>
+			<footer id="footer">
+				<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org" target="_blank" rel="nofollow">Ghost</a></span>
+				</section>
+			</footer>
+			<div id="menu" data-target="menu">
+	<div class="menu-header">
+		<span class="menu-label">Menu</span>
+		<a class="menu-close" data-action="menu" data-target="menu"></a>
+	</div>
+	<ul class="menu-list">
+		<li class="menu-list-item">
+			<a class="home" href="../index.html">Home</a>
+		</li>
+		<li class="menu-list-item">
+			<a class="website" href="http://www.alekseev.ca">Website</a>
+		</li>
+	</ul>
+</div>
+<div class="overlay"></div>
+		</div>
+	</section>
+	
+	
+	<script type="text/javascript" src="../assets/js/dependencies.js?v=7efed0758a"></script>
+	<script type="text/javascript" src="../assets/js/script.js?v=7efed0758a"></script>
+</body>
+</html>
