@@ -20,11 +20,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="Ghost" />
 
-    <link rel="shortcut icon" href="http://localhost:2368/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" href="http://localhost:2368/ghost/img/touch-icon-iphone.png?v=7efed0758a" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://localhost:2368/ghost/img/touch-icon-ipad.png?v=7efed0758a" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://localhost:2368/ghost/img/small.png?v=7efed0758a" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://localhost:2368/ghost/img/medium.png?v=7efed0758a" />
+    <link rel="shortcut icon" href="http://phil-a.github.io/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="http://phil-a.github.io/ghost/img/touch-icon-iphone.png?v=7efed0758a" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://phil-a.github.io/ghost/img/touch-icon-ipad.png?v=7efed0758a" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://phil-a.github.io/ghost/img/small.png?v=7efed0758a" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://phil-a.github.io/ghost/img/medium.png?v=7efed0758a" />
 
     <meta name="application-name" content="Ghost" />
     <meta name="msapplication-TileColor" content="#ffffff" />
@@ -35,7 +35,7 @@
         <meta name="env-fileStorage" content="true" data-type="bool" />
         <meta name="env-publicAPI" content="false" data-type="bool" />
         <meta name="env-apps" content="false" data-type="bool" />
-        <meta name="env-blogUrl" content="http://localhost:2368" data-type="string" />
+        <meta name="env-blogUrl" content="http://phil-a.github.io" data-type="string" />
         <meta name="env-blogTitle" content="Code Phial" data-type="string" />
         <meta name="env-routeKeywords" content="{&quot;tag&quot;:&quot;tag&quot;,&quot;author&quot;:&quot;author&quot;,&quot;page&quot;:&quot;page&quot;,&quot;preview&quot;:&quot;p&quot;,&quot;private&quot;:&quot;private&quot;}" data-type="json" />
         <meta name="env-clientId" content="ghost-admin" data-type="string" />
@@ -43,8 +43,8 @@
 
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" />
 
-    <link rel="stylesheet" href="http://localhost:2368/ghost/vendor.css?v=7efed0758a" />
-    <link rel="stylesheet" href="http://localhost:2368/ghost/ghost.css?v=7efed0758a" />
+    <link rel="stylesheet" href="http://phil-a.github.io/ghost/vendor.css?v=7efed0758a" />
+    <link rel="stylesheet" href="http://phil-a.github.io/ghost/ghost.css?v=7efed0758a" />
 
     
 </head>
@@ -53,7 +53,7 @@
 
 
 
-<script src="http://localhost:2368/ghost/vendor.js?v=7efed0758a"></script>
-<script src="http://localhost:2368/ghost/ghost.js?v=7efed0758a"></script>
+<script src="http://phil-a.github.io/ghost/vendor.js?v=7efed0758a"></script>
+<script src="http://phil-a.github.io/ghost/ghost.js?v=7efed0758a"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Getting Ghost Running on Github (with Buster)" />
     <meta property="og:description" content="A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform." />
-    <meta property="og:url" content="http://localhost:2368/getting-ghost-running-on-github-with-buster/" />
+    <meta property="og:url" content="http://phil-a.github.io/getting-ghost-running-on-github-with-buster/" />
     <meta property="og:image" content="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" />
     <meta property="article:published_time" content="2016-03-10T04:34:49.965Z" />
     <meta property="article:modified_time" content="2016-03-10T06:09:26.207Z" />
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Getting Ghost Running on Github (with Buster)" />
     <meta name="twitter:description" content="A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform." />
-    <meta name="twitter:url" content="http://localhost:2368/getting-ghost-running-on-github-with-buster/" />
+    <meta name="twitter:url" content="http://phil-a.github.io/getting-ghost-running-on-github-with-buster/" />
     <meta name="twitter:image:src" content="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" />
     
     <script type="application/ld+json">
@@ -43,11 +43,11 @@
         "@type": "Person",
         "name": "Philip Alekseev",
         "image": "//www.gravatar.com/avatar/0b659d32538d17494c106bc33591e4e1?s=250&d=mm&r=x",
-        "url": "http://localhost:2368/author/philip/",
+        "url": "http://phil-a.github.io/author/philip/",
         "sameAs": "http://www.alekseev.ca"
     },
     "headline": "Getting Ghost Running on Github (with Buster)",
-    "url": "http://localhost:2368/getting-ghost-running-on-github-with-buster/",
+    "url": "http://phil-a.github.io/getting-ghost-running-on-github-with-buster/",
     "datePublished": "2016-03-10T04:34:49.965Z",
     "dateModified": "2016-03-10T06:09:26.207Z",
     "image": "https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png",
@@ -150,14 +150,14 @@ When it is done we can finally run a local server to see if everything is runnin
 <pre><code>npm start
 </code></pre>
 
-<p>Navigating to <a href="../index.html">http://localhost:2368/</a> in your browser, you should see <br />
+<p>Navigating to <a href="../index.html">http://phil-a.github.io/</a> in your browser, you should see <br />
 <img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/first.png" alt="First run" /></p>
 
 <hr />
 
 <h2 id="settingupyourblog">Setting up your Blog</h2>
 
-<p>When you navigate to <a href="../ghost">http://localhost:2368/ghost</a> you will be taken through a setup process for your blog. <br />
+<p>When you navigate to <a href="../ghost">http://phil-a.github.io/ghost</a> you will be taken through a setup process for your blog. <br />
 Make an account and when the process is finished you will see the admin screen: <br />
 <img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/second.png" alt="Admin screen" /></p>
 
@@ -194,7 +194,7 @@ https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git
 
 <p>and in a separate terminal window (in the same Ghost directory) run:</p>
 
-<pre><code>buster generate --domain=http://localhost:2368/
+<pre><code>buster generate --domain=http://phil-a.github.io/
 </code></pre>
 
 <p>This will generate static files from a local running server and places them inside a <strong>static</strong> folder from where the command was called.</p>
@@ -219,9 +219,9 @@ git push origin master
 <h2 id="blogworkflow">Blog Workflow</h2>
 
 <ol>
-<li>If it is not already obvious, you need to run your local server with <code>npm start</code> and navigate to <a href="../ghost">http://localhost:2368/ghost</a>  </li>
+<li>If it is not already obvious, you need to run your local server with <code>npm start</code> and navigate to <a href="../ghost">http://phil-a.github.io/ghost</a>  </li>
 <li>Click new post and add your . When you're finished markdown and click "Publish now" on the top right corner  </li>
-<li>Use the <code>buster generate --domain=http://localhost:2368/</code> command above to rebuild your updated static folder  </li>
+<li>Use the <code>buster generate --domain=http://phil-a.github.io/</code> command above to rebuild your updated static folder  </li>
 <li>Deploy to github: <br />
 <ul><li><code>buster deploy</code> </li>
 <li>or <code>cd static/</code> and push it up to your remote on github normally.
@@ -243,7 +243,7 @@ git push origin master
 <ul><li>Example: <code>git clone https://github.com/oswaldoacauan/ghostium/ "ghostium"</code></li></ul></li>
 <li><code>cd ../..</code> (Back to your Ghost root directory)  </li>
 <li><code>npm start</code> (Run your server)  </li>
-<li>Go to <a href="http://localhost:2368/ghost/settings/general/">http://localhost:2368/ghost/settings/general/</a> and select the newly installed theme from the drop down. Restart the server and you will see it.  </li>
+<li>Go to <a href="http://phil-a.github.io/ghost/settings/general/">http://phil-a.github.io/ghost/settings/general/</a> and select the newly installed theme from the drop down. Restart the server and you will see it.  </li>
 <li>Dance!</li>
 </ol>
 
@@ -259,13 +259,13 @@ git push origin master
 					<a href="../tag/buster/index.html">buster</a> <a href="../tag/github/index.html">github</a> <a href="../tag/ghost-blog/index.html">ghost-blog</a>
 				</div>
 				<div class="post-share">
-					<a class="icon-twitter" href="https://twitter.com/share?text=Getting Ghost Running on Github (with Buster)&url=http://localhost:2368/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+					<a class="icon-twitter" href="https://twitter.com/share?text=Getting Ghost Running on Github (with Buster)&url=http://phil-a.github.io/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 						<span>Twitter</span>
 					</a>
-					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://phil-a.github.io/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 						<span>Facebook</span>
 					</a>
-					<a class="icon-gplus" href="https://plus.google.com/share?url=http://localhost:2368/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+					<a class="icon-gplus" href="https://plus.google.com/share?url=http://phil-a.github.io/getting-ghost-running-on-github-with-buster/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 						<span>Google+</span>
 					</a>
 				</div>
