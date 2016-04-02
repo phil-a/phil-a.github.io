@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Using a Parse-server with React Native</title>
+	<meta name="description" content="" />
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../assets/css/dependencies.css?v=562f82ef69" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=562f82ef69" />
+
+	<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="Code Phial" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Using a Parse-server with React Native" />
+    <meta property="og:description" content="Lately I&#x27;ve been learning React Native using Stephen Grider&#x27;s course (on Udemy) called Build Apps with React Native. I highly recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps. His tutorials are nearly flawless, and explains all the" />
+    <meta property="og:url" content="www.alekseev.ca/blog/using-a-parse-server-with-react-native/" />
+    <meta property="og:image" content="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/parse-server-and-react-native.jpg" />
+    <meta property="article:published_time" content="2016-04-02T00:21:58.285Z" />
+    <meta property="article:modified_time" content="2016-04-02T15:57:04.738Z" />
+    <meta property="article:tag" content="parse-server" />
+    <meta property="article:tag" content="react-native" />
+    <meta property="article:tag" content="tutorial" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Using a Parse-server with React Native" />
+    <meta name="twitter:description" content="Lately I&#x27;ve been learning React Native using Stephen Grider&#x27;s course (on Udemy) called Build Apps with React Native. I highly recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps. His tutorials are nearly flawless, and explains all the" />
+    <meta name="twitter:url" content="www.alekseev.ca/blog/using-a-parse-server-with-react-native/" />
+    <meta name="twitter:image:src" content="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/parse-server-and-react-native.jpg" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Code Phial",
+    "author": {
+        "@type": "Person",
+        "name": "Philip Alekseev",
+        "image": "//www.gravatar.com/avatar/0b659d32538d17494c106bc33591e4e1?s=250&d=mm&r=x",
+        "url": "www.alekseev.ca/blog/author/philip/",
+        "sameAs": "http://www.alekseev.ca"
+    },
+    "headline": "Using a Parse-server with React Native",
+    "url": "www.alekseev.ca/blog/using-a-parse-server-with-react-native/",
+    "datePublished": "2016-04-02T00:21:58.285Z",
+    "dateModified": "2016-04-02T15:57:04.738Z",
+    "image": "https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/parse-server-and-react-native.jpg",
+    "keywords": "parse-server, react-native, tutorial",
+    "description": "Lately I&#x27;ve been learning React Native using Stephen Grider&#x27;s course (on Udemy) called Build Apps with React Native. I highly recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps. His tutorials are nearly flawless, and explains all the"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Code Phial" href="../rss/index.html" />
+    <script>var disqus="codephial";</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73538909-4', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body class="post-template tag-parse-server tag-react-native tag-tutorial">
+	<section id="wrapper">
+		<div id="ajax-container">
+			<nav id="nav" class="nav">
+				<div class="nav-logo">
+					<a href="../index.html">
+						<img src="../content/images/2016/03/phial_nice-2.png" alt="Logo" />
+						
+					</a>
+				</div>
+				<div class="nav-menu">
+					<a class="rss" href="../rss/index.html"><i class="icon-rss"></i></a>
+					<a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
+				</div>
+			</nav>			
+			
+
+<main class="content" role="main">
+	<article class="post tag-parse-server tag-react-native tag-tutorial featured">
+		<div class="inner">
+
+			<div id="push">
+
+			<header class="post-header">
+				<span class="post-meta">
+					<span class="post-author"><a href="../author/philip/index.html">Philip Alekseev</a></span> | <span class="post-date">01 Apr 2016 <span class="post-reading-time">| <span class="estimated-reading-time"></span> (<span class="word-count"></span> words)</span></span>
+				</span>
+				<div class="clear"></div>
+				<h1 class="post-title">Using a Parse-server with React Native</h1>
+			</header>
+		
+			<section class="post-content">
+				<p>Lately I've been learning React Native using Stephen Grider's course (on Udemy) called Build Apps with React Native. I <em>highly</em> recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps.</p>
+
+<p>His tutorials are nearly flawless, and explains all the material intuitively in great detail. However, Parse recently decided to retire it's services and a lot of people have been forced to either switch to another BaaS, or deploy there own Parse-server.</p>
+
+<p>I ran into a problem in his authentication section that I could not continue learning from his tutorials as I could not use Parse.com. So instead, I decided to deploy my own Parse-server on Heroku so that I could still closely follow along.</p>
+
+<blockquote>
+  <p>Parse Server is an open source version of the Parse backend that can be deployed to any infrastructure that can run Node.js.</p>
+</blockquote>
+
+<p><strong>The following tutorial is to help out the others that want to also finish his authentication tutorial due to the Parse shutdown.</strong></p>
+
+<h3 id="setupparseserveronheroku">Set up Parse Server on Heroku</h3>
+
+<p>Firstly, you have to get your own Parse-server up and running. I suggest using <a href="https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku#create-an-app">this tutorial from Heroku</a> as it is the easiest to understand. <em>*</em>Note that 'MongoLab' has recently changed their name to 'mLab'.* <br />
+It's a very simple process that you should not encounter much trouble with. For testing, you can keep your appId as 'myAppId' and your masterKey as '' for now as you're just learning.</p>
+
+<p>Once you have a successfully deployed server on Heroku you can test it by opening your terminal and running:</p>
+
+<pre><code>curl -X POST \
+   -H "X-Parse-Application-Id: myAppId" \
+   -H "Content-Type: application/json" \
+   -d '{}' \
+   https://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse/functions/hello
+</code></pre>
+
+<p>You should receive a response back:</p>
+
+<pre><code>{"result":"Hi"}
+</code></pre>
+
+<h3 id="changestolecture59parseintegration">Changes to 'Lecture #59. Parse Integration'</h3>
+
+<p>You can now continue with Stephen's tutorial and use parse in your application with some minor changes. In his tutorial you simply copy the <code>Parse.initialize()</code> with the keys from Parse.com. <br />
+However now you have a server with your own keys, and you also need to specify the URL since you are not using Parse.com. Hence, your componentWillMount React function should look like this:</p>
+
+<pre><code>componentWillMount: function() {
+  Parse.initialize('myAppId','unused');
+  Parse.serverURL = 'https://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse';
+},
+</code></pre>
+
+<p>If you haven't changed any keys before deploying to Heroku you can simply copy the above function. Otherwise, just replace with your keys.</p>
+
+<p>Following to Stephen's '#60 Parse Installation' tutorial you should be able to receive a similar error message that reads <code>Invalid username/password</code>.</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/ErrorConsole.png" alt="ParseError - Invalid username/password" /></p>
+
+<p>If not, then either you have not configured your server properly. Make sure that you have not forgotten <code>'/parse'</code> at the end of the URL. You should be able to display the error message in your application.</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/ErrorMessageShow.gif" alt="ParseError - Display error message" /></p>
+
+<h3 id="changestolecture61usersignin">Changes to 'Lecture #61 - User Sign In'</h3>
+
+<p>The next time you will have an issue, is using the Parse.com Dashboard which you will not be able to access, obviously. The workaround is simply using your Parse server to create a new user:</p>
+
+<pre><code>curl -X POST \
+  -H "X-Parse-Application-Id: myAppId" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"TEST","password":"PASSWORD"}' \
+  http://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse/classes/_User
+</code></pre>
+
+<p>This should return a _User object on creation:</p>
+
+<pre><code>{"objectId":"FZWXZCNnjk","createdAt":"2016-03-31T04:12:45.137Z","sessionToken":"r:f728e2a4314bd1f5d830f7aaa29b0bb8"}
+</code></pre>
+
+<p>Make sure it has a sessionToken in the object, otherwise you have mistyped something (most likely the class name <code>_User</code>)</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/LoginSuccess.gif" alt="ParseError - Display error message" /></p>
+
+<h3 id="thatsit">That's it!</h3>
+
+<p>From here you should be able to finish up the tutorial without any more problems! Thanks again to Stephen for <a href="https://www.udemy.com/reactnative/learn/v4/overview">this fantastic tutorial</a>.</p>
+			</section>
+			
+			<footer class="post-footer">
+				<div class="post-tags">
+					<a href="../tag/parse-server/index.html">parse-server</a> <a href="../tag/react-native/index.html">react-native</a> <a href="../tag/tutorial/index.html">tutorial</a>
+				</div>
+				<div class="post-share">
+					<a class="icon-twitter" href="https://twitter.com/share?text=Using a Parse-server with React Native&url=www.alekseev.ca/blog/using-a-parse-server-with-react-native/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<span>Twitter</span>
+					</a>
+					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=www.alekseev.ca/blog/using-a-parse-server-with-react-native/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<span>Facebook</span>
+					</a>
+					<a class="icon-gplus" href="https://plus.google.com/share?url=www.alekseev.ca/blog/using-a-parse-server-with-react-native/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<span>Google+</span>
+					</a>
+				</div>
+			</footer>
+			
+			<aside class="post-comments">
+				<div id="disqus_thread"></div>
+			</aside>
+			
+			</div>
+			
+			<nav class="post-nav">
+					<a class="post-nav-item post-nav-prev" href="../getting-started-with-react-native/index.html">
+						<section class="post-nav-teaser">
+							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+							<span class="post-nav-info">
+								<h4 class="post-nav-title">Getting Started with React Native</h4>
+								<p class="post-nav-excerpt">Why? I decided to dive head-first into learning React Native today. Why,&hellip;</p>
+							</span>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</nav>
+
+		</div>
+	</article>
+</main>
+
+			<div id="body-class" style="display: none;" class="post-template tag-parse-server tag-react-native tag-tutorial"></div>
+			<footer id="footer">
+				<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/bleak" target="_blank" rel="nofollow">Bleak</a> by <a href="http://zutrinken.com" target="_blank" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org" target="_blank" rel="nofollow">Ghost</a></span>
+				</section>
+			</footer>
+			<div id="menu" data-target="menu">
+	<div class="menu-header">
+		<span class="menu-label">Menu</span>
+		<a class="menu-close" data-action="menu" data-target="menu"></a>
+	</div>
+	<ul class="menu-list">
+		<li class="menu-list-item">
+			<a class="home" href="../index.html">Home</a>
+		</li>
+		<li class="menu-list-item">
+			<a class="website" href="http://www.alekseev.ca">Website</a>
+		</li>
+	</ul>
+</div>
+<div class="overlay"></div>
+		</div>
+	</section>
+	
+	
+	<script type="text/javascript" src="../assets/js/dependencies.js?v=562f82ef69"></script>
+	<script type="text/javascript" src="../assets/js/script.js?v=562f82ef69"></script>
+</body>
+</html>

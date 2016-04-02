@@ -1,8 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Code Phial]]></title><description><![CDATA[A compilation of useful coding ventures as well as personal thoughts and experiences along the way. 
 
-Mostly for self-reflection, but if it benefits others then all the better!]]></description><link>http://phil-a.github.io/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 20 Mar 2016 01:43:56 GMT</lastBuildDate><atom:link href="http://phil-a.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Getting Started with React Native]]></title><description><![CDATA[A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android.]]></description><link>http://phil-a.github.io/getting-started-with-react-native/</link><guid isPermaLink="false">cef3181a-4ee4-435c-9168-27a9fc86e48f</guid><category><![CDATA[react-native]]></category><category><![CDATA[mobile development]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Sun, 20 Mar 2016 01:34:00 GMT</pubDate><media:content url="http://phil-a.github.io/content/images/2016/03/react-native.png" medium="image"/><content:encoded><![CDATA[<h2 id="why">Why?</h2>
+Mostly for self-reflection, but if it benefits others then all the better!]]></description><link>www.alekseev.ca/blog/</link><generator>Ghost 0.7</generator><lastBuildDate>Sat, 02 Apr 2016 16:05:28 GMT</lastBuildDate><atom:link href="www.alekseev.ca/blog/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Using a Parse-server with React Native]]></title><description><![CDATA[<p>Lately I've been learning React Native using Stephen Grider's course (on Udemy) called Build Apps with React Native. I <em>highly</em> recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps.</p>
 
-<img src="http://phil-a.github.io/content/images/2016/03/react-native.png" alt="Getting Started with React Native"><p>I decided to dive head-first into learning React Native today. Why, you ask, do I not just use Xcode and learn Swift (which I have heard was really great, actually) and then also use Android Studio and code in Java.</p>
+<p>His tutorials are nearly flawless, and explains all the</p>]]></description><link>www.alekseev.ca/blog/using-a-parse-server-with-react-native/</link><guid isPermaLink="false">9ed2d3f8-58af-407d-b9c1-d2946ce265f3</guid><category><![CDATA[parse-server]]></category><category><![CDATA[react-native]]></category><category><![CDATA[tutorial]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Sat, 02 Apr 2016 00:21:58 GMT</pubDate><media:content url="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/parse-server-and-react-native.jpg" medium="image"/><content:encoded><![CDATA[<img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/parse-server-and-react-native.jpg" alt="Using a Parse-server with React Native"><p>Lately I've been learning React Native using Stephen Grider's course (on Udemy) called Build Apps with React Native. I <em>highly</em> recommend it for anyone that has experience in Javascript (though not required) and wants to learn how to develop mobile apps.</p>
+
+<p>His tutorials are nearly flawless, and explains all the material intuitively in great detail. However, Parse recently decided to retire it's services and a lot of people have been forced to either switch to another BaaS, or deploy there own Parse-server.</p>
+
+<p>I ran into a problem in his authentication section that I could not continue learning from his tutorials as I could not use Parse.com. So instead, I decided to deploy my own Parse-server on Heroku so that I could still closely follow along.</p>
+
+<blockquote>
+  <p>Parse Server is an open source version of the Parse backend that can be deployed to any infrastructure that can run Node.js.</p>
+</blockquote>
+
+<p><strong>The following tutorial is to help out the others that want to also finish his authentication tutorial due to the Parse shutdown.</strong></p>
+
+<h3 id="setupparseserveronheroku">Set up Parse Server on Heroku</h3>
+
+<p>Firstly, you have to get your own Parse-server up and running. I suggest using <a href="https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku#create-an-app">this tutorial from Heroku</a> as it is the easiest to understand. <em>*</em>Note that 'MongoLab' has recently changed their name to 'mLab'.* <br>
+It's a very simple process that you should not encounter much trouble with. For testing, you can keep your appId as 'myAppId' and your masterKey as '' for now as you're just learning.</p>
+
+<p>Once you have a successfully deployed server on Heroku you can test it by opening your terminal and running:</p>
+
+<pre><code>curl -X POST \
+   -H "X-Parse-Application-Id: myAppId" \
+   -H "Content-Type: application/json" \
+   -d '{}' \
+   https://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse/functions/hello
+</code></pre>
+
+<p>You should receive a response back:</p>
+
+<pre><code>{"result":"Hi"}
+</code></pre>
+
+<h3 id="changestolecture59parseintegration">Changes to 'Lecture #59. Parse Integration'</h3>
+
+<p>You can now continue with Stephen's tutorial and use parse in your application with some minor changes. In his tutorial you simply copy the <code>Parse.initialize()</code> with the keys from Parse.com. <br>
+However now you have a server with your own keys, and you also need to specify the URL since you are not using Parse.com. Hence, your componentWillMount React function should look like this:</p>
+
+<pre><code>componentWillMount: function() {
+  Parse.initialize('myAppId','unused');
+  Parse.serverURL = 'https://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse';
+},
+</code></pre>
+
+<p>If you haven't changed any keys before deploying to Heroku you can simply copy the above function. Otherwise, just replace with your keys.</p>
+
+<p>Following to Stephen's '#60 Parse Installation' tutorial you should be able to receive a similar error message that reads <code>Invalid username/password</code>.</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/ErrorConsole.png" alt="Using a Parse-server with React Native"></p>
+
+<p>If not, then either you have not configured your server properly. Make sure that you have not forgotten <code>'/parse'</code> at the end of the URL. You should be able to display the error message in your application.</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/ErrorMessageShow.gif" alt="Using a Parse-server with React Native"></p>
+
+<h3 id="changestolecture61usersignin">Changes to 'Lecture #61 - User Sign In'</h3>
+
+<p>The next time you will have an issue, is using the Parse.com Dashboard which you will not be able to access, obviously. The workaround is simply using your Parse server to create a new user:</p>
+
+<pre><code>curl -X POST \
+  -H "X-Parse-Application-Id: myAppId" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"TEST","password":"PASSWORD"}' \
+  http://&lt;YOUR-APP-NAME&gt;.herokuapp.com/parse/classes/_User
+</code></pre>
+
+<p>This should return a _User object on creation:</p>
+
+<pre><code>{"objectId":"FZWXZCNnjk","createdAt":"2016-03-31T04:12:45.137Z","sessionToken":"r:f728e2a4314bd1f5d830f7aaa29b0bb8"}
+</code></pre>
+
+<p>Make sure it has a sessionToken in the object, otherwise you have mistyped something (most likely the class name <code>_User</code>)</p>
+
+<p><img src="https://s3.amazonaws.com/code-phial/images/using-parse-server-with-react-native/LoginSuccess.gif" alt="Using a Parse-server with React Native"></p>
+
+<h3 id="thatsit">That's it!</h3>
+
+<p>From here you should be able to finish up the tutorial without any more problems! Thanks again to Stephen for <a href="https://www.udemy.com/reactnative/learn/v4/overview">this fantastic tutorial</a>.</p>]]></content:encoded></item><item><title><![CDATA[Getting Started with React Native]]></title><description><![CDATA[A simple set-up guide to getting React Native up and running on your system and testing using iOS and Android.]]></description><link>www.alekseev.ca/blog/getting-started-with-react-native/</link><guid isPermaLink="false">cef3181a-4ee4-435c-9168-27a9fc86e48f</guid><category><![CDATA[react-native]]></category><category><![CDATA[mobile development]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Sun, 20 Mar 2016 01:34:00 GMT</pubDate><media:content url="www.alekseev.ca/blog/content/images/2016/03/react-native.png" medium="image"/><content:encoded><![CDATA[<h2 id="why">Why?</h2>
+
+<img src="www.alekseev.ca/blog/content/images/2016/03/react-native.png" alt="Getting Started with React Native"><p>I decided to dive head-first into learning React Native today. Why, you ask, do I not just use Xcode and learn Swift (which I have heard was really great, actually) and then also use Android Studio and code in Java.</p>
 
 <p>That basically answers the question. <strong>Cause I'm lazy.</strong> I want to develop native mobile apps, but yet I would basically have to rewrite the front-end twice in two different languages. That's quite a pain in the ass. <br>
 I know it <em>could</em> possibly make me a better programmer down the road. And my expertise <em>could</em> be more in demand in the future (maybe, but also maybe not). </p>
@@ -77,7 +153,7 @@ Enter: <code>&lt;Your_ip_address&gt;:8081</code></p>
 
 <h2 id="references">References</h2>
 
-<p><a href="https://facebook.github.io/react-native/docs/getting-started.html">https://facebook.github.io/react-native/docs/getting-started.html</a></p>]]></content:encoded></item><item><title><![CDATA[Getting Ghost Running on Github (with Buster)]]></title><description><![CDATA[A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform. ]]></description><link>http://phil-a.github.io/getting-ghost-running-on-github-with-buster/</link><guid isPermaLink="false">1193532c-5467-4d2f-b4cc-b9934ab08867</guid><category><![CDATA[buster]]></category><category><![CDATA[github]]></category><category><![CDATA[ghost-blog]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 04:34:49 GMT</pubDate><media:content url="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" medium="image"/><content:encoded><![CDATA[<img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" alt="Getting Ghost Running on Github (with Buster)"><p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
+<p><a href="https://facebook.github.io/react-native/docs/getting-started.html">https://facebook.github.io/react-native/docs/getting-started.html</a></p>]]></content:encoded></item><item><title><![CDATA[Getting Ghost Running on Github (with Buster)]]></title><description><![CDATA[A simple yet informative guide to setting up your own blog on Github using the Ghost blogging platform. ]]></description><link>www.alekseev.ca/blog/getting-ghost-running-on-github-with-buster/</link><guid isPermaLink="false">1193532c-5467-4d2f-b4cc-b9934ab08867</guid><category><![CDATA[buster]]></category><category><![CDATA[github]]></category><category><![CDATA[ghost-blog]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 04:34:49 GMT</pubDate><media:content url="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" medium="image"/><content:encoded><![CDATA[<img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/ghost_logo_big.png" alt="Getting Ghost Running on Github (with Buster)"><p>I thought it would be fitting to start off my first blog post explaining to those starting out how I actually got Ghost up and running. </p>
 
 <p>There were a few blogs out there that suggested to use the <strong>Quick Install</strong> method. However, at some <em>quick</em> first attempts I encountered a number of issues (mostly revolving around <a href="https://github.com/axitkhurana/buster">Buster</a> and its generate command failing after trying to fix links: <br>
 <code>fixing links in  /Users/&lt;user&gt;/Development/Node/ghost-0.7.8/static/index.html</code>)</p>
@@ -123,14 +199,14 @@ When it is done we can finally run a local server to see if everything is runnin
 <pre><code>npm start
 </code></pre>
 
-<p>Navigating to <a href="http://phil-a.github.io/">http://phil-a.github.io/</a> in your browser, you should see <br>
+<p>Navigating to <a href="www.alekseev.ca/blog/">www.alekseev.ca/blog/</a> in your browser, you should see <br>
 <img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/first.png" alt="Getting Ghost Running on Github (with Buster)"></p>
 
 <hr>
 
 <h2 id="settingupyourblog">Setting up your Blog</h2>
 
-<p>When you navigate to <a href="http://phil-a.github.io/ghost">http://phil-a.github.io/ghost</a> you will be taken through a setup process for your blog. <br>
+<p>When you navigate to <a href="www.alekseev.ca/blog/ghost">www.alekseev.ca/blog/ghost</a> you will be taken through a setup process for your blog. <br>
 Make an account and when the process is finished you will see the admin screen: <br>
 <img src="https://s3.amazonaws.com/code-phial/images/getting-ghost-running-on-github-with-buster/second.png" alt="Getting Ghost Running on Github (with Buster)"></p>
 
@@ -167,7 +243,7 @@ https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git
 
 <p>and in a separate terminal window (in the same Ghost directory) run:</p>
 
-<pre><code>buster generate --domain=http://phil-a.github.io/
+<pre><code>buster generate --domain=www.alekseev.ca/blog/
 </code></pre>
 
 <p>This will generate static files from a local running server and places them inside a <strong>static</strong> folder from where the command was called.</p>
@@ -192,9 +268,9 @@ git push origin master
 <h2 id="blogworkflow">Blog Workflow</h2>
 
 <ol>
-<li>If it is not already obvious, you need to run your local server with <code>npm start</code> and navigate to <a href="http://phil-a.github.io/ghost">http://phil-a.github.io/ghost</a>  </li>
+<li>If it is not already obvious, you need to run your local server with <code>npm start</code> and navigate to <a href="www.alekseev.ca/blog/ghost">www.alekseev.ca/blog/ghost</a>  </li>
 <li>Click new post and add your . When you're finished markdown and click "Publish now" on the top right corner  </li>
-<li>Use the <code>buster generate --domain=http://phil-a.github.io/</code> command above to rebuild your updated static folder  </li>
+<li>Use the <code>buster generate --domain=www.alekseev.ca/blog/</code> command above to rebuild your updated static folder  </li>
 <li>Deploy to github: <br>
 <ul><li><code>buster deploy</code> </li>
 <li>or <code>cd static/</code> and push it up to your remote on github normally.
@@ -216,7 +292,7 @@ git push origin master
 <ul><li>Example: <code>git clone https://github.com/oswaldoacauan/ghostium/ "ghostium"</code></li></ul></li>
 <li><code>cd ../..</code> (Back to your Ghost root directory)  </li>
 <li><code>npm start</code> (Run your server)  </li>
-<li>Go to <a href="http://phil-a.github.io/ghost/settings/general/">http://phil-a.github.io/ghost/settings/general/</a> and select the newly installed theme from the drop down. Restart the server and you will see it.  </li>
+<li>Go to <a href="www.alekseev.ca/blog/ghost/settings/general/">www.alekseev.ca/blog/ghost/settings/general/</a> and select the newly installed theme from the drop down. Restart the server and you will see it.  </li>
 <li>Dance!</li>
 </ol>
 
@@ -224,7 +300,7 @@ git push origin master
   <p>Some themes have more configuration options than others. Such as Google Analytics, Disqus, etc.</p>
 </blockquote>
 
-<p>Of course even if it doesn't you can add it yourself cause you're a smart cookie. Enjoy!</p>]]></content:encoded></item><item><title><![CDATA[Welcome to Ghost]]></title><description><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list</p>]]></description><link>http://phil-a.github.io/welcome-to-ghost/</link><guid isPermaLink="false">03babea9-a52e-44ac-9d2d-ed8ad9d8fe34</guid><category><![CDATA[Getting Started]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 02:15:05 GMT</pubDate><content:encoded><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!</p>
+<p>Of course even if it doesn't you can add it yourself cause you're a smart cookie. Enjoy!</p>]]></content:encoded></item><item><title><![CDATA[Welcome to Ghost]]></title><description><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list</p>]]></description><link>www.alekseev.ca/blog/welcome-to-ghost/</link><guid isPermaLink="false">03babea9-a52e-44ac-9d2d-ed8ad9d8fe34</guid><category><![CDATA[Getting Started]]></category><dc:creator><![CDATA[Philip Alekseev]]></dc:creator><pubDate>Thu, 10 Mar 2016 02:15:05 GMT</pubDate><content:encoded><![CDATA[<p>You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at <code>&lt;your blog URL&gt;/ghost/</code>. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!</p>
 
 <h2 id="gettingstarted">Getting Started</h2>
 
